@@ -20,14 +20,21 @@
             这是组件1
             <router-link to="/second?id=2&name=tom">查看id为2 的页面</router-link>
             <router-link to="/second/1/william">查看id为1 的页面</router-link>
+            <button @click="goPage">跳转用户页面</button>
 </div>
         `,
+        methods:{
+            goPage(){
+                this.$router.push('/second?num1=3');
+            },
+        }
     }
     let second = {
         template: `
         <div>
         这是组件2：接收组件1传递来的id-->:{{$route.query.id}}
         这是组件2：接收组件1传递来的id-->:{{$route.params.num}}
+        这是组件2：接收组件1传递来的id-->:{{$route.query.num1}}-->{{$route.path}}
         <br>
         用户名：{{$route.query.name}}
         用户名：{{$route.params.name}}
