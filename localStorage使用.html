@@ -23,7 +23,23 @@
     //     console.log('第' + n + '条数据key为'+ key, 'valuse为' + val);
     // }
 
-    localStorage.clear();
+    // localStorage.clear();
+
+    //储存对象
+    let local = localStorage;
+    // local.number = 24;
+    // local.name = 'william';
+    // console.log(typeof local.number, typeof local.name);
+    student = {
+        id: 1,
+        username: 'william',
+        age: 3,
+    }
+    local.stu = JSON.stringify(student);
+    console.log(typeof local.stu)
+    let stu2 = JSON.parse(local.stu);
+    console.log(stu2.username)
+
 
 </script>
 
