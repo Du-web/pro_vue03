@@ -19,6 +19,7 @@
             <div>
             这是组件1
             <router-link to="/second?id=2&name=tom">查看id为2 的页面</router-link>
+            <router-link to="/second/1/william">查看id为1 的页面</router-link>
 </div>
         `,
     }
@@ -26,8 +27,10 @@
         template: `
         <div>
         这是组件2：接收组件1传递来的id-->:{{$route.query.id}}
+        这是组件2：接收组件1传递来的id-->:{{$route.params.num}}
         <br>
         用户名：{{$route.query.name}}
+        用户名：{{$route.params.name}}
 </div>
         `,
     }
@@ -36,6 +39,7 @@
         routes:[
             {path: '/first', component: first},
             {path: '/second', component: second},
+            {path: '/second/:num/:name', component: second},
             {path: '/', redirect: '/first'},
         ]
     })
